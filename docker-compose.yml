@@ -1,0 +1,19 @@
+version: "2.1"
+services:
+  db:
+    image: mariadb/server:10.4
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: 'rootpassword'
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+
+  app:
+    build: .
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "80:80"
