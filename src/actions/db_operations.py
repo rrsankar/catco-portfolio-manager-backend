@@ -23,6 +23,8 @@ def validate_user(uname, password):
     cursor.close()
 
     if output:
+        print(f"Authentication Successful -- Username:{uname} -- Password:{password}")
         return 1
     else:
+        print(f"Authentication Failed -- Username:{uname} -- Password:{password}")
         return 0
