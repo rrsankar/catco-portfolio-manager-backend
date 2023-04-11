@@ -501,8 +501,14 @@
                     <span class="label">Success</span>
                     <span class="underline"></span>
                 </label>
-
-
+            </form>
+            <form id="form4">
+                <label class="form-input">
+                    <i class="material-icons">credit_card</i>
+                    <input id="email" type="text" autofocus="true" disabled />
+                    <span class="label">Login Failed</span>
+                    <span class="underline"></span>
+                </label>
             </form>
         </div>
     </div>
@@ -512,6 +518,7 @@
     document.getElementById("form").style.display = "";
     document.getElementById("form2").style.display = "none";
     document.getElementById("form3").style.display = "none";
+    document.getElementById("form4").style.display = "none";
     document.getElementById("payment-header").style.display = "none";
     document.getElementById("payment-details").style.display = "none";
     document.getElementById("sign-in-header").style.display = "";
@@ -550,7 +557,15 @@
                     return 1;
                 }
                 else {
-                    return 0;
+                    $btn.classList.add('granted');
+                    document.getElementById("form").style.display = "none";
+                    document.getElementById("form2").style.display = "none";
+                    document.getElementById("form3").style.display = "none";
+                    document.getElementById("form4").style.display = "";
+                    document.getElementById("payment-header").style.display = "none";
+                    document.getElementById("payment-details").style.display = "none";
+                    document.getElementById("sign-in-header").style.display = "none";
+                    return 1;
                 }
             })
     }
